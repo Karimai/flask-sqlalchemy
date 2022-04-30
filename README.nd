@@ -1,0 +1,23 @@
+$ python
+from app import db
+db.create_all()
+exit()
+
+$ aqlite3 db.sqlite3
+sqlite> .table
+sqlite> .schema user
+CREATE TABLE user (
+        id INTEGER NOT NULL, 
+        name VARCHAR(50), 
+        email VARCHAR(50), 
+        date_joined DATE, 
+        PRIMARY KEY (id), 
+        UNIQUE (email)
+);
+sqlite> .exit
+
+
+$ python
+from app import User
+User.query.all()
+[<User: an_email@domain.com>]
